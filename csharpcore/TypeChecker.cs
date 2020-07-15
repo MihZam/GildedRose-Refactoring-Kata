@@ -29,11 +29,11 @@ namespace csharpcore
             }
             else if (legendary.Contains(name))
             {
-                
+                manager.UpdateLegendary(item);
             }
             else if (conjured.Contains(name))
             {
-                
+                manager.UpdateConjured(item);
             }
         }
     }

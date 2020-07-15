@@ -38,6 +38,18 @@
             item.SellIn--;
         }
 
+        public void UpdateLegendary(Item item)
+        {
+            
+        }
+
+        public void UpdateConjured(Item item)
+        {
+            item.Quality = modifyQuality(item.Quality, item.SellIn > 0 ? -2 : -4);
+
+            item.SellIn--;
+        }
+
         private int modifyQuality(int quality, int rate)
         {
             quality += rate;
