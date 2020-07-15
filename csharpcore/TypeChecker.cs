@@ -25,7 +25,7 @@ namespace csharpcore
             }
             else if (ticket.Contains(name))
             {
-                
+                manager.UpdateTicket(item);
             }
             else if (legendary.Contains(name))
             {

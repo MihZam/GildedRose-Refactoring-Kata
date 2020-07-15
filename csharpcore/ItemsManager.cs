@@ -4,30 +4,37 @@
     {
         public void UpdateCommon(Item item)
         {
-            if (item.SellIn > 0)
-            {
-                item.Quality = modifyQuality(item.Quality, -1);
-            }
-            else
-            {
-                item.Quality = modifyQuality(item.Quality, -2);
-            }
-            
+            item.Quality = item.SellIn > 0 ? modifyQuality(item.Quality, -1) : modifyQuality(item.Quality, -2);
+
             item.SellIn--;
         }
 
         public void UpdateAging(Item item)
         {
+            item.Quality = modifyQuality(item.Quality, item.SellIn > 0 ? 1 : 2);
 
-            if (item.SellIn > 0)
+            item.SellIn--;
+        }
+
+        public void UpdateTicket(Item item)
+        {
+            if (item.SellIn > 10)
             {
                 item.Quality = modifyQuality(item.Quality, 1);
             }
-            else
+            else if (item.SellIn > 5 && item.SellIn <= 10)
             {
                 item.Quality = modifyQuality(item.Quality, 2);
             }
-            
+            else if (item.SellIn > 0 && item.SellIn <= 5)
+            {
+                item.Quality = modifyQuality(item.Quality, 3);
+            }
+            else
+            {
+                item.Quality = 0;
+            }
+
             item.SellIn--;
         }
 
